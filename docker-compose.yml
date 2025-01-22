@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  screenmatch-frases:
+    build: screenmatchfrasesbackend
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://localhost/screenmatch_frases?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_USER: postgres
+      DB_PASSWORD: 123456
+    restart: always
+    depends_on:
+      localhost:
+        condition: service_healthy
+  localhost:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: screenmatch_frases
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      timeout: 5s
+      retries: 5
