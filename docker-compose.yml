@@ -23,6 +23,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: screenmatch_frases
+    volumes:
+      - ./init_data.sql:/docker-entrypoint-initdb.d/init_data.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       timeout: 5s
