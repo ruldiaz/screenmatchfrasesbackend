@@ -1,3 +1,11 @@
+CREATE TABLE frases (
+  id SERIAL PRIMARY KEY,
+  frase VARCHAR(255) NOT NULL,
+  personaje VARCHAR(255) NOT NULL,
+  titulo VARCHAR(255) NOT NULL,
+  poster VARCHAR(255) NOT NULL
+);
+
 insert into frases(id, frase, personaje, titulo, poster) values (1, 'Amigos no mienten', 'Eleven', 'Stranger things', 'https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg');
 insert into frases(id, frase, personaje, titulo, poster) values (2, 'Bienvenida al mundo real. Es una droga. Te va a encantar', 'Monica', 'Friends', 'https://m.media-amazon.com/images/M/MV5BNDVkYjU0MzctMWRmZi00NTkxLTgwZWEtOWVhYjZlYjllYmU4XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg');
 insert into frases(id, frase, personaje, titulo, poster) values (3, 'No es una mentira si crees en ella', 'George Contanza', 'Seinfeld', 'https://m.media-amazon.com/images/M/MV5BZjZjMzQ2ZmUtZWEyZC00NWJiLWFjM2UtMzhmYzZmZDcxMzllXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg');
