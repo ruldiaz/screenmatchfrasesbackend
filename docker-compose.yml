@@ -8,14 +8,15 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DB_URL: jdbc:postgresql://localhost/screenmatch_frases?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_URL: jdbc:postgresql://postgres/screenmatch_frases?createDatabaseIfNotExist=true&serverTimezone=UTC
       DB_USER: postgres
       DB_PASSWORD: 123456
     restart: always
     depends_on:
-      localhost:
+      postgres:
         condition: service_healthy
-  localhost:
+
+  postgres:
     image: postgres:latest
     ports:
       - "5432:5432"
