@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS screenmatch_frases;
+
 CREATE TABLE frases (
   id SERIAL PRIMARY KEY,
   frase VARCHAR(255) NOT NULL,

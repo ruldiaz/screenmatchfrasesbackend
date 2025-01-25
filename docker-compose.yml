@@ -8,9 +8,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DB_URL: jdbc:postgresql://postgres/screenmatch_frases?createDatabaseIfNotExist=true&serverTimezone=UTC
-      DB_USER: postgres
-      DB_PASSWORD: 123456
+      DB_URL: jdbc:postgresql://dpg-cu878ttsvqrc73b78btg-a.oregon-postgres.render.com/screenmatch_frases
+      DB_USER: screenmatch_frases_user
+      DB_PASSWORD: bjn2MDhDslsg4DohEsZOfLx31f8sj6YJ
     restart: always
     depends_on:
       postgres:
@@ -21,11 +21,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: screenmatch_frases_user
+      POSTGRES_PASSWORD: bjn2MDhDslsg4DohEsZOfLx31f8sj6YJ
       POSTGRES_DB: screenmatch_frases
-    volumes:
-      - ./init_data.sql:/docker-entrypoint-initdb.d/init_data.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       timeout: 5s
